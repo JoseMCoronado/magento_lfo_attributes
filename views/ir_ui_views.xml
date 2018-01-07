@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <data>
+    <record model="ir.ui.view" id="product_template_form_view_mod">
+      <field name="name">x_gfp.product.template.form.mod</field>
+      <field name="model">product.template</field>
+      <field name="inherit_id" ref="product.product_template_form_view"/>
+      <field name="priority">99</field>
+      <field name="arch" type="xml">
+        <xpath expr="//notebook" position="inside">
+          <page string="Magento Attributes">
+            <group>
+              <group>
+                <field name='mg_arrives'/>
+                <field name='mg_asin'/>
+                <field name='mg_assembly_required'/>
+                <field name='mg_bed_size'/>
+                <field name='mg_bed_type'/>
+                <field name='mg_boxspring'/>
+                <field name='mg_canonical_cross_domain'/>
+                <field name='mg_canonical_url'/>
+                <field name='mg_carton_height'/>
+                <field name='mg_carton_length'/>
+                <field name='mg_carton_width'/>
+                <field name='mg_child_category'/>
+                <field name='mg_collections'/>
+                <field name='mg_color'/>
+                <field name='mg_color_base'/>
+                <field name='mg_comfort_level'/>
+                <field name='mg_cost'/>
+                <field name='mg_country_of_manufacture'/>
+                <field name='mg_cube'/>
+                <field name='mg_depth'/>
+                <field name='mg_description'/>
+                <field name='mg_feature_eight'/>
+                <field name='mg_feature_eleven'/>
+                <field name='mg_feature_fifteen'/>
+                <field name='mg_feature_five'/>
+                <field name='mg_feature_four'/>
+                <field name='mg_feature_fourteen'/>
+                <field name='mg_feature_nine'/>
+                <field name='mg_feature_one'/>
+                <field name='mg_feature_seven'/>
+                <field name='mg_feature_six'/>
+                <field name='mg_feature_ten'/>
+                <field name='mg_feature_thirteen'/>
+                <field name='mg_feature_three'/>
+                <field name='mg_feature_twelve'/>
+                <field name='mg_feature_two'/>
+                <field name='mg_free_shipping_discount'/>
+                <field name='mg_height'/>
+                <field name='mg_includes'/>
+                <field name='mg_include_skus'/>
+              </group>
+              <group>
+                <field name='mg_is_bundle'/>
+                <field name='mg_length'/>
+                <field name='mg_length_one'/>
+                <field name='mg_lowest_price'/>
+                <field name='mg_manufacturer'/>
+                <field name='mg_manufacturer_product_code'/>
+                <field name='mg_material'/>
+                <field name='mg_mattress_size'/>
+                <field name='mg_mattress_type'/>
+                <field name='mg_motion_type'/>
+                <field name='mg_msrp'/>
+                <field name='mg_multiple_options'/>
+                <field name='mg_on_sale'/>
+                <field name='mg_parent_category'/>
+                <field name='mg_part_number'/>
+                <field name='mg_price'/>
+                <field name='mg_productvideo'/>
+                <field name='mg_product_id'/>
+                <field name='mg_product_type'/>
+                <field name='mg_profit_margin_dollar'/>
+                <field name='mg_profit_margin_percentage'/>
+                <field name='mg_seat_depth'/>
+                <field name='mg_seat_height'/>
+                <field name='mg_shipping_information'/>
+                <field name='mg_sofa_fabrics'/>
+                <field name='mg_sofa_type'/>
+                <field name='mg_starting_at'/>
+                <field name='mg_styles'/>
+                <field name='mg_table_base_type'/>
+                <field name='mg_table_height'/>
+                <field name='mg_table_top_materials'/>
+                <field name='mg_table_top_shapes'/>
+                <field name='mg_upc'/>
+                <field name='mg_url_key'/>
+                <field name='mg_url_path'/>
+                <field name='mg_vendor_description'/>
+                <field name='mg_volume_weight'/>
+                <field name='mg_warranty'/>
+                <field name='mg_weight'/>
+                <field name='mg_width'/>
+              </group>
+            </group>
+          </page>
+        </xpath>
+      </field>
+    </record>
+  </data>
+</odoo>
