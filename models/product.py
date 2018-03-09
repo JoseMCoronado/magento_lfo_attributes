@@ -10,7 +10,8 @@ class ProductTemplate(models.Model):
     mg_assembly_required = fields.Char('mg_assembly_required')
     mg_bed_size = fields.Char('mg_bed_size')
     mg_bed_type = fields.Char('mg_bed_type')
-    mg_boxspring = fields.Char('mg_boxspring')
+    mg_boxspring = fields.Char('mg_bom')
+    mg_bom = fields.Char('mg_boxspring')
     mg_canonical_cross_domain = fields.Char('mg_canonical_cross_domain')
     mg_canonical_url = fields.Char('mg_canonical_url')
     mg_carton_height = fields.Char('mg_carton_height')
@@ -85,3 +86,18 @@ class ProductTemplate(models.Model):
     mg_warranty = fields.Char('mg_warranty')
     mg_weight = fields.Char('mg_weight')
     mg_width = fields.Char('mg_width')
+
+    @api.multi
+    @api.constrains('mg_bom','mg_carton_height','mg_carton_width','mg_carton_length','mg_weight','mg_cube','mg_url_path')
+    def magento_map_update(self):
+        for record in self:
+            vals = {
+                'bom_parser':record.mg_bom,
+                'carton_height':float(record.mg_carton_height) or False,
+                'carton_width':float(record.mg_carton_width) or False,
+                'length':float(record.mg_carton_length) or False,
+                'weight':float(record.mg_weight) or False,
+                'volume':float(record.mg_cube) or False,
+                'manu_url': ("http://www.localfurnitureoutlet.com/" + record.mg_url_path),
+            }
+            record.write(vals)

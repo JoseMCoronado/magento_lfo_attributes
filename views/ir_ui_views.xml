@@ -16,6 +16,7 @@
                 <field name='mg_assembly_required'/>
                 <field name='mg_bed_size'/>
                 <field name='mg_bed_type'/>
+                <field name='mg_bom'/>
                 <field name='mg_boxspring'/>
                 <field name='mg_canonical_cross_domain'/>
                 <field name='mg_canonical_url'/>
