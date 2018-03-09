@@ -93,11 +93,11 @@ class ProductTemplate(models.Model):
         for record in self:
             vals = {
                 'bom_parser':record.mg_bom,
-                'carton_height':float(record.mg_carton_height) or False,
-                'carton_width':float(record.mg_carton_width) or False,
-                'length':float(record.mg_carton_length) or False,
-                'weight':float(record.mg_weight) or False,
-                'volume':float(record.mg_cube) or False,
+                'carton_height':float(filter(lambda x: x.isdigit(), record.mg_carton_height)),
+                'carton_width':float(filter(lambda x: x.isdigit(), record.mg_carton_width)),
+                'length':float(filter(lambda x: x.isdigit(), record.mg_carton_length)),
+                'weight':float(filter(lambda x: x.isdigit(), record.mg_weight)),
+                'volume':float(filter(lambda x: x.isdigit(), record.mg_cube)),
                 'manu_url': ("http://www.localfurnitureoutlet.com/" + record.mg_url_path),
             }
             record.write(vals)
