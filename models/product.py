@@ -88,16 +88,46 @@ class ProductTemplate(models.Model):
     mg_width = fields.Char('mg_width')
 
     @api.multi
-    @api.constrains('mg_bom','mg_carton_height','mg_carton_width','mg_carton_length','mg_weight','mg_cube','mg_url_path')
+    @api.constrains('mg_bom','mg_url_path')
     def magento_map_update(self):
         for record in self:
             vals = {
                 'bom_parser':record.mg_bom,
-                'carton_height':float(record.mg_carton_height.replace('"','')),
-                'carton_width':float(record.mg_carton_width.replace('"','')),
-                'length':float(record.mg_carton_length.replace('"','')),
-                'weight':float(record.mg_weight.replace('"','')),
-                'volume':float(record.mg_cube.replace('"','')),
                 'manu_url': ("http://www.localfurnitureoutlet.com/" + record.mg_url_path),
             }
             record.write(vals)
+
+    @api.multi
+    @api.constrains('mg_carton_height')
+    def mg_carton_height_map_update(self):
+        for record in self:
+            if record.mg_carton_height:
+                record.write({'carton_height': float(record.mg_carton_height.replace('"',''))})
+
+    @api.multi
+    @api.constrains('mg_carton_length')
+    def mg_carton_length_map_update(self):
+        for record in self:
+            if record.mg_carton_length:
+                record.write({'length': float(record.mg_carton_length.replace('"',''))})
+
+    @api.multi
+    @api.constrains('mg_weight')
+    def mg_weight_map_update(self):
+        for record in self:
+            if record.mg_weight:
+                record.write({'weight': float(record.mg_weight.replace('"',''))})
+
+    @api.multi
+    @api.constrains('mg_cube')
+    def mg_cube_map_update(self):
+        for record in self:
+            if record.mg_cube:
+                record.write({'volume': float(record.mg_cube.replace('"',''))})
+
+    @api.multi
+    @api.constrains('mg_carton_width')
+    def mg_carton_width_map_update(self):
+        for record in self:
+            if record.mg_carton_width:
+                record.write({'carton_width': float(record.mg_carton_width.replace('"',''))})
