@@ -91,9 +91,12 @@ class ProductTemplate(models.Model):
     @api.constrains('mg_bom','mg_url_path')
     def magento_map_update(self):
         for record in self:
+            stringy = ''
+            if record.mg_url_path:
+                stringy = record.mg_url_path
             vals = {
                 'bom_parser':record.mg_bom,
-                'manu_url': ("http://www.localfurnitureoutlet.com/" + record.mg_url_path),
+                'manu_url': ("http://www.localfurnitureoutlet.com/" + stringy),
             }
             record.write(vals)
 
